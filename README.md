@@ -6,6 +6,9 @@ Although not as feature-rich as Echo, I believe it is enough for this specific t
 ### My Structure:
 ```
 receipts/
+  ├── empty.json
+  ├── missingFields.json
+  ├── wrongType.json
   ├── receipt1.json
   ├── receipt2.json
   ├── receipt3.json
@@ -69,8 +72,6 @@ main.go               # Application entry point
 3. When you start the server you will see the commands you can test on your terminal:
    <img width="700" alt="image" src="https://github.com/user-attachments/assets/de76b1f1-15a7-411d-a6d3-3dfd4febf212" />
 4. Test out the application:
-   - Test with Postman:
-    I have exported the collections for easy access and execution.
 
    - Test with the test cases I have added in routes/routes_test.go:
      I have written a script to test them out: run_tests.sh
@@ -87,4 +88,7 @@ main.go               # Application entry point
      
       ```bash
       curl http://localhost:8000/receipts/{id}/points
+      ```
+   - Test with Postman:
+     I have exported the collections for easy access and execution.
   
