@@ -4,6 +4,7 @@ Although not as feature-rich as Echo, I believe it is enough for this specific t
 
 ## Features
 ### My Structure:
+```
 receipts/
   ├── receipt1.json
   ├── receipt2.json
@@ -18,7 +19,7 @@ run_tests.sh          # Script to execute all tests
 go.mod                # Module dependencies
 go.sum                # Dependency checksums
 main.go               # Application entry point
-
+```
 ### Main Endpoints
 1. **POST** `/receipts/process`  
    - **Input**: A JSON receipt  
@@ -68,19 +69,22 @@ main.go               # Application entry point
 3. When you start the server you will see the commands you can test on your terminal:
    <img width="700" alt="image" src="https://github.com/user-attachments/assets/de76b1f1-15a7-411d-a6d3-3dfd4febf212" />
 4. Test out the application:
+   - Test with Postman:
+    I have exported the collections for easy access and execution.
+
    - Test with the test cases I have added in routes/routes_test.go:
      I have written a script to test them out: run_tests.sh
      please run the below command
      ```bash
      ./run_tests.sh
      
-   - Test with the terminal command:
-     Submit receipt1(you can also change to other receipt: receipt2, receipt3, receipt4, empty, missingFeilds, wrongType):
+   - Test with the terminal command:  
+     Submit receipt1 with the below command (you can also change to other receipt: receipt2, receipt3, receipt4, empty, missingFeilds, wrongType):
      ```bash
-         curl localhost:8000/receipts/process --include --header "Content-Type: application/json" -d @receipts/receipt1.json --request POST
-    you will get a string of ID "4f51cb00aa6a2376ae553c4963a08a52c1ceacd8527c4b4008c13ee7ebc1c467",
-    then you can use the copy and paste the id into the below command for the points
-    ```bash
+     curl localhost:8000/receipts/process --include --header "Content-Type: application/json" -d @receipts/receipt1.json --request POST
+     ```
+       you will get a string of ID, then you can use the copy and paste the id into the below command for the points
+     
+      ```bash
       curl http://localhost:8000/receipts/{id}/points
-  - Test with Postman:
-    I have exported the collections for easy access and execution.
+  
